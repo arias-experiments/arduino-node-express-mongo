@@ -2,10 +2,9 @@
 #include <SPI.h>
 #include <WiFi.h>
 
-#include <algorithm>
-
 #include "wifi_manager.h"
 
+#include <src/rapidjson/document.h>
 
 enum States {WAIT, WGET, WPUT};
 
