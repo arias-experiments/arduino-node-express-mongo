@@ -1,0 +1,24 @@
+{
+  "name": "express-mongo-arduino-01",
+  "version": "0.0.1",
+  "description": "Node JS, Express, MongoDB, interacting with Arduino",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "mongodb",
+    "express",
+    "arduino",
+    "reclaim",
+    "cloud"
+  ],
+  "author": "Carlos R. Arias",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0"
+  }
+}
