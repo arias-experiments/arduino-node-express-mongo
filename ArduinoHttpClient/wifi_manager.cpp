@@ -1,6 +1,4 @@
 #include <WiFiNINA.h>
-#include <SPI.h>
-#include <WiFi.h>
 
 #include "wifi_manager.h"
 #include "wifi_constants.h"

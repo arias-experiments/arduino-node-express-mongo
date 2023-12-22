@@ -1,10 +1,9 @@
 #include <WiFiNINA.h>
-#include <SPI.h>
-#include <WiFi.h>
+#include <Arduino_JSON.h>
 
 #include "wifi_manager.h"
 
-#include <src/rapidjson/document.h>
+
 
 enum States {WAIT, WGET, WPUT};
 
@@ -49,6 +48,23 @@ void setup() {
 
   WifiManager wifi;
   wifi.PrintWifiStatus();
+
+  /* Just Testing */
+  // https://github.com/arduino-libraries/Arduino_JSON/tree/master/examples
+  char json[] = "[{\"_id\":\"65505c17c0909961ccf1afe0\",\"button1\":false,\"button2\":false,\"button3\":false,\"potentiometer\":5000,\"__v\":0}]";
+
+  JSONVar var = JSON.parse(json);
+  if (JSON.typeof(var) == "undefined")
+    Serial.println("ERROR: Parsing input failed");
+  
+  JSONVar data = var[0];
+
+  Serial.println((const char*)data["_id"]);
+  Serial.println((bool)data["button1"]);
+  Serial.println((bool)data["button2"]);
+  Serial.println((bool)data["button3"]);
+  Serial.println((int)data["potentiometer"]);
+  Serial.println("----------------------");
 
 }
 
@@ -99,6 +115,7 @@ void loop() {
       while (client.available()){
         char c = client.read();
         Serial.print(c);
+        // Continue reading, do not print, when Connection: close, then wait for the JSON, then process JSON
         currentState = WAIT;
       }
       
